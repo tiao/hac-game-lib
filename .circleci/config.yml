@@ -3,20 +3,25 @@ jobs:
   build:
     docker:
       - image: circleci/python:3.7
-  steps:
-    - checkout
-    - run:
-        name: Install Python deps in a venv
-        command: |
-          pip3 install pipenv
-          pipenv install --dev
-    - run:
-        command: |
-          python -m unittest
-    - store_artifacts:
-        path: test-reports/
-        destination: tr1
-    - store_test_results:
-        path: test-reports/
+
+    steps:
+      - checkout
+       
+      - run:
+          name: Install Python deps in a venv
+          command: |
+            pip3 install pipenv
+            pipenv install --dev
+
+      - run:
+          command: |
+            python -m unittest
+
+      - store_artifacts:
+          path: test-reports/
+          destination: tr1
+
+      - store_test_results:
+          path: test-reports/
 
 
