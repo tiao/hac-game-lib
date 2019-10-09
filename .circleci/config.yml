@@ -15,6 +15,7 @@ jobs:
 
       - run:
           command: |
+            pipenv shell
             python -m unittest
 
       - store_artifacts:
